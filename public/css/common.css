@@ -1,0 +1,6 @@
+body{margin:0;padding:0}
+ul{list-style-type:none;padding:0;margin:0}
+a{text-decoration:none}
+img{border:1px solide #666}
+.slide-wrapper{width:200px;height:100px;overflow:hidden;position:relative}
+.slide li{position:absolute}
