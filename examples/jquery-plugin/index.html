@@ -4,12 +4,14 @@
   <title>Image Slider</title>
   <link rel="stylesheet" href="./../../public/css/common.css" media="screen" title="no title" charset="utf-8">
   <body>
-    <ul id="slide" class="slide">
-      <li><a href="#"><img src="./../../public/images/black.png" alt="image1" /></a></li>
-      <li><a href="#"><img src="./../../public/images/blue.png" alt="image2" /></a></li>
-      <li><a href="#"><img src="./../../public/images/orange.png" alt="image3" /></a></li>
-      <li><a href="#"><img src="./../../public/images/yellow.png" alt="image4" /></a></li>
-    </ul>
+    <div class="slide-wrapper">
+      <ul id="slide" class="slide">
+        <li class="active"><a href="#"><img src="./../../public/images/black.png" alt="image1" style="width:200px;height:100px;"/></a></li>
+        <li><a href="#"><img src="./../../public/images/blue.png" alt="image2" style="width:200px;height:100px;" /></a></li>
+        <li><a href="#"><img src="./../../public/images/orange.png" alt="image3" style="width:200px;height:100px;" /></a></li>
+        <li><a href="#"><img src="./../../public/images/yellow.png" alt="image4" style="width:200px;height:100px;" /></a></li>
+      </ul>
+    </div>
     <script src="./../../public/scripts/jquery-2.1.1.min.js" charset="utf-8"></script>
     <script src="./imageSlider.js" charset="utf-8"></script>
     <script charset="utf-8">
