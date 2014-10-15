@@ -1,5 +1,5 @@
 # ImageSlider  
-> linked list 형태의 image slider plugin 개발  
+> image slider plugin 개발  
   
 ## 1. jquery version  
 > [jQuery](http://jquery.com) plug-in type  
