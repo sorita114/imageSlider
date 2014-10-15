@@ -16,6 +16,7 @@
 > - ** 2014-10-15 **  
   1. 모듈 분리 -> rotate 함수 분리  
   2. pause / resume 기능 생성  
+  3. branch 생성 -> v0.0.2  
   
 ## 4. licence  
 MIT
