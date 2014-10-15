@@ -5,32 +5,36 @@
     //var self = this;
     var defaults = {
       $this : self,
-      mouseOver : true,
+      hover : true,
       rotateTime : 1000,
       slideTime : 3000,
       slideWidth : 200,
       easing : 'slide'
     };
-    var count = 0;
-    var intervalTime = null;
     
     return this.each(function(){
       var self = $(this);
       var settings = $.extend(true, defaults, options || {});
       var $li = self.find('.slide').find('li');
+      var intervalTime = null;
+      
        $li.each(function(index){
          $(this).css('left', index * settings.slideWidth);
       });
       
-      if(stop){
+      if(settings.hover){
         $li.on('mouseover', function(){
-          //pause();
+          clearInterval(intervalTime);
         }).on('mouseout', function(){
-          intervalTime = $li.imageSliderResume(settings);
+          intervalTime = setInterval(function(){
+            $li.imageSliderRotate(settings);
+          }, settings.slideTime);
         });
       }
       
-      intervalTime = $li.imageSliderResume(settings);
+      intervalTime = setInterval(function(){
+        $li.imageSliderRotate(settings);
+      }, settings.slideTime);
       
     });
   };

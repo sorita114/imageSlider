@@ -4,7 +4,15 @@
   <title>Image Slider</title>
   <link rel="stylesheet" href="./../../public/css/common.css" media="screen" title="no title" charset="utf-8">
   <body>
-    <div class="slide-wrapper">
+    <div class="slide-wrapper s1">
+      <ul id="slide" class="slide">
+        <li class="active"><a href="#"><img src="./../../public/images/black.png" alt="image1" style="width:200px;height:100px;"/></a></li>
+        <li><a href="#"><img src="./../../public/images/blue.png" alt="image2" style="width:200px;height:100px;" /></a></li>
+        <li><a href="#"><img src="./../../public/images/orange.png" alt="image3" style="width:200px;height:100px;" /></a></li>
+        <li><a href="#"><img src="./../../public/images/yellow.png" alt="image4" style="width:200px;height:100px;" /></a></li>
+      </ul>
+    </div>
+    <div class="slide-wrapper s2">
       <ul id="slide" class="slide">
         <li class="active"><a href="#"><img src="./../../public/images/black.png" alt="image1" style="width:200px;height:100px;"/></a></li>
         <li><a href="#"><img src="./../../public/images/blue.png" alt="image2" style="width:200px;height:100px;" /></a></li>
@@ -14,11 +22,14 @@
     </div>
     <script src="./../../public/scripts/jquery-2.1.1.min.js" charset="utf-8"></script>
     <script src="./jquery-imageSlider.js" charset="utf-8"></script>
-    <script src="./jquery-imageSlider.resume.js" charset="utf-8"></script>
     <script src="./jquery-imageSlider.rotate.js" charset="utf-8"></script>
     <script charset="utf-8">
       $(document).ready(function(){
-        $(".slide-wrapper").imageSlider({});
+        $(".s1").imageSlider({});
+        $(".s2").imageSlider({
+          rotateTime : 1000,
+          slideTime : 4000,
+        });
       });
     </script>
   </body>
