@@ -7,6 +7,14 @@
   
 ## 2. javascript version  
 > javascript type  
+> options  
+```` javascript  
+  {
+    rotateTime : 1000,//이미지 전환 속도  
+    slideTime : 3000,//슬라이드 전환 속도  
+    slideWidth : 200//슬라이드 크기  
+  }  
+````  
   
 ## 3. change log  
 > - ** 2014-10-14 **  
