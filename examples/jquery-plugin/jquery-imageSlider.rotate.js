@@ -3,12 +3,17 @@
   
   $.fn.imageSliderRotate = function(options){
     var self = $(this);
-    var $li = self.find('li');
+    var $slide = self.find('.slide');
+    var $nav = self.find('.slide-nav');
+    var $li = $slide.find('li');
     var len = $li.length;
     var interValTime = null;
     
     //init
     $li.each(function(index){
+      if(index === 0 ){
+        $(this).addClass('active');
+      }
       $(this).css({
         'left': index * options.slideWidth
       });
@@ -18,7 +23,7 @@
     return {
       rotate : function(page){
         var _this = this;
-        var index = self.find('li.active').data('index');
+        var index = $slide.find('li.active').data('index');
         $li.animate({
           'left' : ( page && index > page ? '+=' : '-=') + options.slideWidth
         },{
@@ -38,12 +43,20 @@
             if( left >= (len - 1 ) * options.slideWidth ) {
               $this.css('left' , -1 * options.slideWidth + 'px');
             }
-            if( page && $this.hasClass('active')){
+            if($this.hasClass('active')){
               var _index = $this.data('index');
-              if(_index == page){
-                  return;
-              } else {
-                  _this.rotate(page);
+              $nav.find('a').each(function(){
+                var index = $(this).data('index');
+                if(index == _index){
+                  $(this).addClass('active').siblings().removeClass('active');
+                }
+              });
+              if(page) {
+                if(_index == page){
+                    return;
+                } else {
+                    _this.rotate(page);
+                }
               }
             }
           }
@@ -62,6 +75,20 @@
         var _this = this;
         _this.pause();
         _this.rotate(pageNum);
+      },
+      next : function(){
+        var _this = this;
+        var index = $nav.find('a.active').data('index');
+        var pageNum = index + 1 > len ? 1 : index + 1;
+        _this.pause();
+        _this.moveTo(pageNum);
+      },
+      prev : function(){
+        var _this = this;
+        var index = $nav.find('a.active').data('index');
+        var pageNum = index - 1 < 1 ? len : index - 1;
+        _this.pause();
+        _this.moveTo(pageNum);
       }
     };
   };

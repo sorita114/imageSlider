@@ -16,18 +16,24 @@
       var settings = $.extend(true, defaults, options || {});
       
       //rotae
-      var rotate = $(this).find('.slide').imageSliderRotate(settings);
+      var rotate = $(this).imageSliderRotate(settings);
       //navigtion
-      var nav = $(this).imageSliderNavigation(options);
+      $(this).imageSliderNavigation(options);
       
       //init
       rotate.resume();
       
       //events
-      nav.on('click','a', function(e){
+      $(this).find('.slide-nav').on('click','a:not(".active")', function(e){
         var pageNum = $(this).data('index');
         e.preventDefault();
         rotate.moveTo(pageNum);
+      });
+      $(this).find('.slide-controller').on('click', '.controller', function(e){
+        e.preventDefault();
+        var type = $(this).data('type');
+        console.log(type);
+        rotate[type]();
       });
     });
   };
