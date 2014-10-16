@@ -17,6 +17,8 @@
   1. 모듈 분리 -> rotate 함수 분리  
   2. pause / resume 기능 생성  
   3. branch 생성 -> v0.0.2  
+> - ** 2014-10-16 **  
+  1. 네이게이션 페이지 클릭 ( moveTo ) 시 슬라이더 페이지 전환 구현  
   
 ## 4. licence  
 MIT
