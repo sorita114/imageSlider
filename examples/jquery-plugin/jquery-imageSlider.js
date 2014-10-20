@@ -32,7 +32,6 @@
       $(this).find('.slide-controller').on('click', '.controller', function(e){
         e.preventDefault();
         var type = $(this).data('type');
-        console.log(type);
         rotate[type]();
       });
     });
