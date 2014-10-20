@@ -1,0 +1,30 @@
+{
+  "name": "imageSlider",
+  "version": "1.0.0",
+  "homepage": "https://github.com/sorita114/imageSlider",
+  "authors": [
+    "mgz708 <mgz708@corp.auction.co.kr>"
+  ],
+  "description": "Create By Hyyoon in Megazon",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "javascript",
+    "imageSlider"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "mocha": "~1.21.5",
+    "should": "~3.3.1"
+  }
+}

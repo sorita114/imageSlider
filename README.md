@@ -32,6 +32,7 @@
   1. stop, pause 이벤트 생성  
   2. hover 이벤트 생성  
   3. grunt package ( uglify, concat, plato )  
+  4. bower package 적용 ( jquery, mocha , should )  
   
 ## 4. licence  
 MIT
