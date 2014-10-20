@@ -1,0 +1,27 @@
+{
+  "name": "imageSlider",
+  "version": "1.0.0",
+  "description": "Create By sorita in Megazon",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies" : {
+    "grunt" : "~0.4.5",
+    "grunt-contrib-uglify" : "~0.6.0",
+    "grunt-contrib-concat" : "~0.5.0",
+    "grunt-plato" : "~1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sorita114/imageSlider"
+  },
+  "keywords": [
+    "imageSlider"
+  ],
+  "author": "Megazon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sorita114/imageSlider/issues"
+  },
+  "homepage": "https://github.com/sorita114/imageSlider"
+}
