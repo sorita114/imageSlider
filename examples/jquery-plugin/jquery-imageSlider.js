@@ -14,26 +14,36 @@
     
     return this.each(function(){
       var settings = $.extend(true, defaults, options || {});
+      var _this = $(this);
       
       //rotae
-      var rotate = $(this).imageSliderRotate(settings);
+      var rotate = _this.imageSliderRotate(settings);
       //navigtion
-      $(this).imageSliderNavigation(options);
+      _this.imageSliderNavigation(options);
       
       //init
       rotate.resume();
       
       //events
-      $(this).find('.slide-nav').on('click','a:not(".active")', function(e){
+      _this.find('.slide-nav').on('click','a:not(".active")', function(e){
         var pageNum = $(this).data('index');
         e.preventDefault();
         rotate.moveTo(pageNum);
       });
-      $(this).find('.slide-controller').on('click', '.controller', function(e){
+      _this.find('.slide-controller').on('click', '.controller', function(e){
         e.preventDefault();
         var type = $(this).data('type');
         rotate[type]();
       });
+      if(settings.hover){
+        _this.find('.slide li').one('mouseover', function(e){
+          e.preventDefault();
+          rotate.pause();
+        }).one('mouseout', function(e){
+          e.preventDefault();
+          rotate.resume();
+        });
+      }
     });
   };
 })(window, jQuery);
