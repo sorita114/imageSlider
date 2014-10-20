@@ -31,6 +31,7 @@
 > - ** 2014-10-20 **  
   1. stop, pause 이벤트 생성  
   2. hover 이벤트 생성  
+  3. grunt package ( uglify, concat, plato )  
   
 ## 4. licence  
 MIT
