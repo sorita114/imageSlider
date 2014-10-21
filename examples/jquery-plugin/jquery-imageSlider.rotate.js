@@ -1,6 +1,11 @@
 (function(window, $){
   'use strict';
-  
+  /**
+  * imageSliderRotate Plugin - image slide sub module for rotate.
+  *
+  * @class imageSliderRotate
+  * @membarOf jQuery.fn
+  */
   $.fn.imageSliderRotate = function(options){
     var self = $(this);
     var $slide = self.find('.slide');
@@ -8,8 +13,6 @@
     var $li = $slide.find('li');
     var len = $li.length;
     var interValTime = null;
-    
-    //init
     $li.each(function(index){
       if(index === 0 ){
         $(this).addClass('active');

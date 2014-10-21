@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">13</p>
+      <p class="stat">41</p>
     </div>
   </div>
   <div class="row historical">
@@ -91,7 +91,35 @@
   <div class="row">
     <textarea id="file-source" class="col-md-12">(function(window, $){
   &#039;use strict&#039;;
+  /**
+  * @fileOverview Contains the awesome plug-in code.
+  * @version 1.0.1
+  * @author Hyyoon &amp;amp;lt;hyyoon@mz.co.kr
+  */
   
+  /**
+  * See (http://jquery.com/)
+  * @name jQuery
+  * @class
+  * See the jQuery Library (http://jquery.com/) for full details. This just
+  * documents the function and classes that are added to jQuery by this plug-in.
+  */
+  
+  /**
+  * See (http://jquery.com/)
+  * @name fn
+  * @class
+  * See the jQuery Library (http://jquery.com/) for full details. This just
+  * documents the function and classes that are added to jQuery by this plug-in.
+  * @memberOf jQuery
+  */
+  
+  /**
+  * imageSliderNavigation Plugin - image slide sub module for navigation.
+  *
+  * @class imageSliderNavigation
+  * @membarOf jQuery.fn
+  */
   $.fn.imageSliderNavigation = function navigation(){
     var len = $(this).find(&#039;.slide&#039;).find(&#039;li&#039;).length;
     var $a = &#039;&#039;;

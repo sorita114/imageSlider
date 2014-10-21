@@ -1,6 +1,11 @@
 (function(window, $){
   'use strict';
-  
+  /**
+  * imageSliderNavigation Plugin - image slide sub module for navigation.
+  *
+  * @class imageSliderNavigation
+  * @membarOf jQuery.fn
+  */
   $.fn.imageSliderNavigation = function navigation(){
     var len = $(this).find('.slide').find('li').length;
     var $a = '';

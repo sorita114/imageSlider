@@ -33,11 +33,20 @@ module.exports = function(grunt){
           './report/output/jquery-plugin' : ['./lib/jquery-plugin/*.js']
         }
       }
+    },
+    jsdoc : {
+      dist : {
+        src : ['./dest/jquery-plugin/imageSlider.js', 'README.md'],
+        options : {
+          destination : './doc/jquery-plugin'
+        }
+      }
     }
   });
   
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-plato');
-  grunt.registerTask('default', ['concat', 'uglify','plato']);
+  grunt.loadNpmTasks('grunt-jsdoc');
+  grunt.registerTask('default', ['jsdoc', 'concat', 'uglify','plato']);
 };

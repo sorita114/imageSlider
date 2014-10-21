@@ -13,6 +13,7 @@
     rotateTime : 1000,//이미지 전환 속도  
     slideTime : 3000,//슬라이드 전환 속도  
     slideWidth : 200//슬라이드 크기  
+    hover : true //slide pause on mouse over of slide  
   }  
 ````  
   
@@ -33,6 +34,10 @@
   2. hover 이벤트 생성  
   3. grunt package ( uglify, concat, plato )  
   4. bower package 적용 ( jquery, mocha , should )  
+> - ** 2014-10-21 **  
+  1. version up -> v1.0.1  
+  2. option 추가  
+  3. 문서화  
   
 ## 4. licence  
 MIT
