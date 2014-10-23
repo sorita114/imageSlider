@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Plato - rotate.js</title>
+  <title>Plato - Rotate.js</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
@@ -36,7 +36,7 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1>rotate.js</h1>
+    <h1>Rotate.js</h1>
   </div>
 </div>
 
@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">70.32</p>
+      <p class="stat">69.44</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">121</p>
+      <p class="stat">128</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">37.96</p>
+      <p class="stat">36.82</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.95</p>
+      <p class="stat">1.02</p>
     </div>
   </div>
 </div>
@@ -128,13 +128,20 @@
     var len = $li.length;
     var interValTime = null;
     $li.each(function(index){
+      var $this = $(this);
       if(index === 0 ){
-        $(this).addClass(&#039;active&#039;);
+        $this.addClass(&#039;active&#039;);
       }
-      $(this).css({
-        &#039;left&#039;: index * options.slideWidth
+      $this.css({
+        &#039;left&#039;: index * options.width
       });
-      $(this).data(&#039;index&#039;, index + 1);
+      $this.data(&#039;index&#039;, index + 1);
+      if(options.type === &#039;image&#039;){
+        $this.find(&#039;img&#039;).css({
+          &#039;width&#039; : options.width,
+          &#039;height&#039; : options.height
+        });
+      }
     });
     
     return {
@@ -142,7 +149,7 @@
         var _this = this;
         var index = $slide.find(&#039;li.active&#039;).data(&#039;index&#039;);
         $li.animate({
-          &#039;left&#039; : ( page &amp;&amp; index &gt; page ? &#039;+=&#039; : &#039;-=&#039;) + options.slideWidth
+          &#039;left&#039; : ( page &amp;&amp; index &gt; page ? &#039;+=&#039; : &#039;-=&#039;) + options.width
         },{
           duration : page ? &#039;400&#039; : options.rotateTime,
           step : function(now, tw){
@@ -154,11 +161,11 @@
           complete : function(){
             var $this = $(this);
             var left = $this.position().left;
-            if( left  &lt;  -1 * options.slideWidth ){
-              $this.css(&#039;left&#039; , ((len - 1) * options.slideWidth) + ( -1 * options.slideWidth ) + &#039;px&#039;);
+            if( left  &lt;  -1 * options.width ){
+              $this.css(&#039;left&#039; , ((len - 1) * options.width) + ( -1 * options.width ) + &#039;px&#039;);
             }
-            if( left &gt;= (len - 1 ) * options.slideWidth ) {
-              $this.css(&#039;left&#039; , -1 * options.slideWidth + &#039;px&#039;);
+            if( left &gt;= (len - 1 ) * options.width ) {
+              $this.css(&#039;left&#039; , -1 * options.width + &#039;px&#039;);
             }
             if($this.hasClass(&#039;active&#039;)){
               var _index = $this.data(&#039;index&#039;);
