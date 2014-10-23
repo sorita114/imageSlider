@@ -7,12 +7,13 @@
   
 ## 2. javascript version  
 > javascript type  
-> options  
+> Default options  
 ```` javascript  
   {
     rotateTime : 1000,//이미지 전환 속도  
     slideTime : 3000,//슬라이드 전환 속도  
-    slideWidth : 200//슬라이드 크기  
+    width : 850,//슬라이드 크기  
+    height : 500,//슬라이드 높이
     hover : true //slide pause on mouse over of slide  
   }  
 ````  
