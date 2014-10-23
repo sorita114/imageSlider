@@ -39,6 +39,11 @@
   1. version up -> v1.0.1  
   2. option 추가  
   3. 문서화  
+> - ** 2014-10-22 **  
+  1. modify example index.html  
+  2. bower install bootstrap  
+  3. bower install html5shiv  
+  4. modify option name  
   
 ## 4. licence  
 MIT
