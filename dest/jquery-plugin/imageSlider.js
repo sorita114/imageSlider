@@ -1,4 +1,4 @@
-/*! imageSlider -v1.0.1 - 2014-10-21 */(function(window, $){
+/*! imageSlider -v1.0.1 - 2014-10-22 */(function(window, $){
   'use strict';
   /**
   * @fileOverview Contains the awesome plug-in code.

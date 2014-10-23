@@ -1,44 +1,100 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <title>Image Slider</title>
-  <link rel="stylesheet" href="./../../public/css/common.css" media="screen" title="no title" charset="utf-8">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Slider Example - jQuery plugin</title>
+    <link rel="stylesheet" href="./../../bower_components/bootstrap/dist/css/bootstrap.min.css" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./../../public/css/common.css" media="screen" title="no title" charset="utf-8">
+    <!--[if lt IE9]>
+      <script src="./../../bower_components/html5shiv/dist/html5shiv.js" charset="utf-8"></script>
+    <![endif]-->
+  </head>
   <body>
-    <div>
-      <div class="s1">
-        <div class="slide-wrapper">
-          <ul id="slide" class="slide">
-            <li><a href="#"><img src="./../../public/images/black.png" alt="image1" style="width:200px;height:100px;"/></a></li>
-            <li><a href="#"><img src="./../../public/images/blue.png" alt="image2" style="width:200px;height:100px;" /></a></li>
-            <li><a href="#"><img src="./../../public/images/orange.png" alt="image3" style="width:200px;height:100px;" /></a></li>
-            <li><a href="#"><img src="./../../public/images/yellow.png" alt="image4" style="width:200px;height:100px;" /></a></li>
-          </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="jumbotron">
+            <h1>Image Slider Example</h1>
+            <p class="text-right">- jQuery-plugin</p>
+            <p>Index</p>
+            <ol>
+              <li><a href="#default">Defaults Example</a></li>
+              <li><a href="#slideTime">Change SlideTime Example</a></li>
+            </ol>
+          </div>
         </div>
-        <p class="slide-nav"></p>
       </div>
-      <div style="margin-bottom:50px"></div>
-      <div class="s2">
-        <div class="slide-wrapper">
-          <ul id="slide" class="slide">
-            <li><a href="#"><img src="./../../public/images/black.png" alt="image1" style="width:200px;height:100px;"/></a></li>
-            <li><a href="#"><img src="./../../public/images/blue.png" alt="image2" style="width:200px;height:100px;" /></a></li>
-            <li><a href="#"><img src="./../../public/images/orange.png" alt="image3" style="width:200px;height:100px;" /></a></li>
-            <li><a href="#"><img src="./../../public/images/yellow.png" alt="image4" style="width:200px;height:100px;" /></a></li>
-          </ul>
+      <div class="row">
+        <div class="col-md-12">
+          <section>
+            <header id="default">
+              <h3>Defaults Example</h3>
+            </header>
+            <article>
+              <div class="s1">
+                <div class="slide-wrapper">
+                  <ul id="slide" class="slide">
+                    <li><a href="#"><img src="./../../public/images/img1.jpg" alt="image1"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img2.jpg" alt="image2"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img3.jpg" alt="image3"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img4.jpg" alt="image4"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img5.jpg" alt="image5"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img6.jpg" alt="image6"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img7.jpg" alt="image7"/></a></li>
+                  </ul>
+                </div>
+                <p class="slide-nav"></p>
+                <div class="slide-controller">
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="prev" data-target="s1"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="next" data-target="s1"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="pause" data-target="s1"><span class="glyphicon glyphicon-pause"></span></button>
+                  <button tyep="button" class="btn btn-default btn-sm controller" data-type="resume" data-target="s1"><span class="glyphicon glyphicon-play"></span></button>
+                </div>
+              </div>
+            </article>
+          </section>
         </div>
-        <p class="slide-nav"></p>
-        <div class="slide-controller">
-          <button class="controller" data-type="prev" data-target="s2">Prev</button>
-          <button class="controller" data-type="next" data-target="s2">Next</button>
-          <button class="controller" data-type="pause" data-target="s2">Pause</button>
-          <button class="controller" data-type="resume" data-target="s2">resume</button>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <section>
+            <header id="slideTime">
+              <h3>Change SlideTime Example</h3>
+            </header>
+            <article>
+              <div class="s2">
+                <div class="slide-wrapper">
+                  <ul id="slide" class="slide">
+                    <li><a href="#"><img src="./../../public/images/img1.jpg" alt="image1"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img2.jpg" alt="image2"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img3.jpg" alt="image3"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img4.jpg" alt="image4"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img5.jpg" alt="image5"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img6.jpg" alt="image6"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img7.jpg" alt="image7"/></a></li>
+                  </ul>
+                </div>
+                <p class="slide-nav"></p>
+                <div class="slide-controller">
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="prev" data-target="s2"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="next" data-target="s2"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="pause" data-target="s2"><span class="glyphicon glyphicon-pause"></span></button>
+                  <button tyep="button" class="btn btn-default btn-sm controller" data-type="resume" data-target="s2"><span class="glyphicon glyphicon-play"></span></button>
+                </div>
+              </div>
+            </article>
+          </section>
         </div>
       </div>
     </div>
-    <script src="./../../public/scripts/jquery-2.1.1.min.js" charset="utf-8"></script>
-    <script src="./jquery-imageSlider.js" charset="utf-8"></script>
-    <script src="./jquery-imageSlider.rotate.js" charset="utf-8"></script>
-    <script src="./jquery-imageSlider.navigation.js" charset="utf-8"></script>
+    <script src="./../../bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <script src="./../../bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="./../../lib/jquery-plugin/jquery-imageSlider.js" charset="utf-8"></script>
+    <script src="./../../lib/jquery-plugin/jquery-imageSlider.rotate.js" charset="utf-8"></script>
+    <script src="./../../lib/jquery-plugin/jquery-imageSlider.navigation.js" charset="utf-8"></script>
     <script charset="utf-8">
       $(document).ready(function(){
         $(".s1").imageSlider({});
@@ -49,4 +105,4 @@
       });
     </script>
   </body>
-</head>
+</html>
