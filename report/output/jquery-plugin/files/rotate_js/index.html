@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">69.44</p>
+      <p class="stat">66.78</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">128</p>
+      <p class="stat">149</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">36.82</p>
+      <p class="stat">40.99</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">1.02</p>
+      <p class="stat">1.19</p>
     </div>
   </div>
 </div>
@@ -148,8 +148,21 @@
       rotate : function(page){
         var _this = this;
         var index = $slide.find(&#039;li.active&#039;).data(&#039;index&#039;);
+        var position = &#039;&#039;;
+        if( page &amp;&amp; typeof page === &#039;number&#039;){
+          position = ( page &amp;&amp; index &gt; page ? &#039;+=&#039; : &#039;-=&#039;) + options.width;
+        } else if(page &amp;&amp; typeof page === &#039;string&#039;){
+          position = page === &#039;N&#039; ? &#039;-=&#039; + options.width : &#039;+=&#039; + options.width;
+        } else {
+          position = &#039;-=&#039; + options.width;
+        }
+        
+        if(!options.isLoop &amp;&amp; index === len){
+          _this.pause();
+        }
         $li.animate({
-          &#039;left&#039; : ( page &amp;&amp; index &gt; page ? &#039;+=&#039; : &#039;-=&#039;) + options.width
+          //&#039;left&#039; : ( page &amp;&amp; index &gt; page ? &#039;+=&#039; : &#039;-=&#039;) + options.width
+          &#039;left&#039; : position
         },{
           duration : page ? &#039;400&#039; : options.rotateTime,
           step : function(now, tw){
@@ -175,7 +188,7 @@
                   $(this).addClass(&#039;active&#039;).siblings().removeClass(&#039;active&#039;);
                 }
               });
-              if(page) {
+              if(page &amp;&amp; typeof page === &#039;number&#039;) {
                 if(_index == page){
                     return;
                 } else {
@@ -203,16 +216,24 @@
       next : function(){
         var _this = this;
         var index = $nav.find(&#039;a.active&#039;).data(&#039;index&#039;);
-        var pageNum = index + 1 &gt; len ? 1 : index + 1;
+        //var pageNum = index + 1 &gt; len ? 1 : index + 1;
         _this.pause();
-        _this.moveTo(pageNum);
+        if(!options.isLoof &amp;&amp; index === len){
+          _this.pause();
+        } else {
+          _this.moveTo(&#039;N&#039;);
+        }
       },
       prev : function(){
         var _this = this;
         var index = $nav.find(&#039;a.active&#039;).data(&#039;index&#039;);
-        var pageNum = index - 1 &lt; 1 ? len : index - 1;
+        //var pageNum = index - 1 &lt; 1 ? len : index - 1;
         _this.pause();
-        _this.moveTo(pageNum);
+        if(!options.isLoop &amp;&amp; index === 1){
+          _this.pause();
+        } else {
+          _this.moveTo(&#039;P&#039;);
+        }
       }
     };
   };
