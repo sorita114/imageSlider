@@ -54,7 +54,8 @@
   5. add bower highlight.js  
   6. bugFixed  
   7. modify next, prev  
-  8. add option
+  8. add option  
+  9. bugFixed
   
 ## 4. licence  
 MIT
