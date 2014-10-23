@@ -14,7 +14,12 @@
     slideTime : 3000,//슬라이드 전환 속도  
     width : 850,//슬라이드 크기  
     height : 500,//슬라이드 높이
-    hover : true //slide pause on mouse over of slide  
+    hover : true, //slide pause on mouse over of slide  
+    usedButton : true,//use controller  
+    usedButtonNext : true,//use controller next button  
+    usedButtonPrev : true,//use controller prev button  
+    usedButtonPause : true,//use controller Pause button  
+    usedButtonResume : true//use controller resume button
   }  
 ````  
   

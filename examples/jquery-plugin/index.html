@@ -25,7 +25,7 @@
             <ol>
               <li><a href="#ex1">Defaults Example</a></li>
               <li><a href="#ex2">Change SlideTime Example</a></li>
-              <li><a href="#ex3">Change Width, height Example</a></li>
+              <li><a href="#ex3">Disabled button</a></li>
             </ol>
           </div>
         </div>
@@ -94,7 +94,7 @@
             </article>
           </section>
           <pre>
-            <code class="js">$(".s2").imageSlider({<br> rotateTime : 1000,<br>  slideTime : 4000<br>});</code>
+            <code class="js">$(".s2").imageSlider({<br> rotateTime : 1000,<br> slideTime : 4000<br>});</code>
           </pre>
         </div>
       </div>
@@ -102,7 +102,7 @@
         <div class="col-md-12">
           <section>
             <header id="ex3">
-              <h3>Change Width, height Example</h3>
+              <h3>Disabled button</h3>
             </header>
             <article>
               <div class="s3">
@@ -128,7 +128,7 @@
             </article>
           </section>
           <pre>
-            <code class="js">$(".s2").imageSlider({<br> width : 1100,<br>  height : 500<br>});</code>
+            <code class="js">$(".s3").imageSlider({<br> usedButton : true,<br> usedButtonNext : false,<br> usedButtonPrev : false,<br> usedButtonPause : true,<br> usedButtonResume : true<br>});</code>
           </pre>
         </div>
       </div>
@@ -136,8 +136,9 @@
     <script src="./../../bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="./../../bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
     <script src="./../../lib/jquery-plugin/jquery-imageSlider.js" charset="utf-8"></script>
-    <script src="./../../lib/jquery-plugin/jquery-imageSlider.rotate.js" charset="utf-8"></script>
-    <script src="./../../lib/jquery-plugin/jquery-imageSlider.navigation.js" charset="utf-8"></script>
+    <script src="./../../lib/jquery-plugin/jquery-imageSliderRotate.js" charset="utf-8"></script>
+    <script src="./../../lib/jquery-plugin/jquery-imageSliderNavigation.js" charset="utf-8"></script>
+    <script src="./../../lib/jquery-plugin/jquery-imageSliderController.js" charset="utf-8"></script>
     <script charset="utf-8">
       $(document).ready(function(){
         hljs.configure({
@@ -150,11 +151,14 @@
         $(".s1").imageSlider();
         $(".s2").imageSlider({
           rotateTime : 1000,
-          slideTime : 4000
+          slideTime : 4000,
         });
         $(".s3").imageSlider({
-          width : 1100,
-          height : 500
+          usedButton : true,
+          usedButtonNext : false,
+          usedButtonPrev : false,
+          usedButtonResume : true,
+          usedButtonPause : true
         });
       });
     </script>

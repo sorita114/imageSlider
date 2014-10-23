@@ -30,7 +30,12 @@ module.exports = function(grunt){
     plato : {
       your_task : {
         files : {
-          './report/output/jquery-plugin' : ['./lib/jquery-plugin/jquery-imageSlider.js', './lib/jquery-plugin/jquery-imageSlider.navigation.js','./lib/jquery-plugin/jquery-imageSlider.rotate.js']
+          './report/output/jquery-plugin' : [
+                                              './lib/jquery-plugin/jquery-imageSlider.js',
+                                              './lib/jquery-plugin/jquery-imageSliderNavigation.js',
+                                              './lib/jquery-plugin/jquery-imageSliderRotate.js',
+                                              './lib/jquery-plugin/jquery-imageSliderController.js',
+                                            ]
         }
       }
     },
