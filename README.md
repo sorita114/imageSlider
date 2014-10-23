@@ -19,7 +19,9 @@
     usedButtonNext : true,//use controller next button  
     usedButtonPrev : true,//use controller prev button  
     usedButtonPause : true,//use controller Pause button  
-    usedButtonResume : true//use controller resume button
+    usedButtonResume : true,//use controller resume button  
+    autoSlide : true//auto rotate slide  
+    isLoop : true//loop slide  
   }  
 ````  
   
@@ -50,6 +52,9 @@
   3. bower install html5shiv  
   4. modify option name  
   5. add bower highlight.js  
+  6. bugFixed  
+  7. modify next, prev  
+  8. add option
   
 ## 4. licence  
 MIT
