@@ -34,7 +34,6 @@
       width : 850,
       height : 500,
       type : 'image',
-      $this : self,
       hover : true,
       userNav : true,
       rotateTime : 1000,
@@ -44,7 +43,9 @@
       usedButtonNext : true,
       usedButtonPrev : true,
       usedButtonResume : true,
-      usedButtonPause : true
+      usedButtonPause : true,
+      isLoop : true,
+      autoSlide : true
     };
     return this.each(function(){
       var settings = $.extend(true, defaults, options || {});
@@ -54,23 +55,32 @@
       _this.imageSliderController(settings);
       _this.css('width', settings.width + 'px');
       _this.find('.slide').css('height', settings.height + 'px');
+      
       _this.find('.slide-nav').on('click','a:not(".active")', function(e){
-        var pageNum = $(this).data('index');
+        var pageNum = $(this).data('index') * 1;
         e.preventDefault();
         rotate.moveTo(pageNum);
       });
       
       if(settings.hover){
-        _this.find('.slide li').one('mouseover', function(e){
+        _this.find('.slide li').on('mouseover', function(e){
           e.preventDefault();
           rotate.pause();
-        }).one('mouseout', function(e){
+        }).on('mouseout', function(e){
           e.preventDefault();
           rotate.resume();
         });
       }
+      //event
+      _this.find('.slide-controller').on('click', '.controller', function(e){
+        e.preventDefault();
+        var type = $(this).data('type');
+        rotate[type]();
+      });
       
-      rotate.resume();
+      if(settings.autoSlide){
+        rotate.resume();
+      }
     });
   };
 })(window, jQuery);
@@ -129,12 +139,6 @@
         }
       });
     }
-    //event
-    $this.find('.slide-controller').on('click', 'button:not("disabled")','.controller', function(e){
-      e.preventDefault();
-      var type = $(this).data('type');
-      rotate[type]();
-    });
   };
   
 })(window, jQuery);
@@ -240,8 +244,21 @@
       rotate : function(page){
         var _this = this;
         var index = $slide.find('li.active').data('index');
+        var position = '';
+        if( page && typeof page === 'number'){
+          position = ( page && index > page ? '+=' : '-=') + options.width;
+        } else if(page && typeof page === 'string'){
+          position = page === 'N' ? '-=' + options.width : '+=' + options.width;
+        } else {
+          position = '-=' + options.width;
+        }
+        
+        if(!options.isLoop && index === len){
+          _this.pause();
+        }
         $li.animate({
-          'left' : ( page && index > page ? '+=' : '-=') + options.width
+          //'left' : ( page && index > page ? '+=' : '-=') + options.width
+          'left' : position
         },{
           duration : page ? '400' : options.rotateTime,
           step : function(now, tw){
@@ -267,7 +284,7 @@
                   $(this).addClass('active').siblings().removeClass('active');
                 }
               });
-              if(page) {
+              if(page && typeof page === 'number') {
                 if(_index == page){
                     return;
                 } else {
@@ -295,16 +312,24 @@
       next : function(){
         var _this = this;
         var index = $nav.find('a.active').data('index');
-        var pageNum = index + 1 > len ? 1 : index + 1;
+        //var pageNum = index + 1 > len ? 1 : index + 1;
         _this.pause();
-        _this.moveTo(pageNum);
+        if(!options.isLoof && index === len){
+          _this.pause();
+        } else {
+          _this.moveTo('N');
+        }
       },
       prev : function(){
         var _this = this;
         var index = $nav.find('a.active').data('index');
-        var pageNum = index - 1 < 1 ? len : index - 1;
+        //var pageNum = index - 1 < 1 ? len : index - 1;
         _this.pause();
-        _this.moveTo(pageNum);
+        if(!options.isLoop && index === 1){
+          _this.pause();
+        } else {
+          _this.moveTo('P');
+        }
       }
     };
   };
