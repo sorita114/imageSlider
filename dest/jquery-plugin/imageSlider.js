@@ -1,4 +1,4 @@
-/*! imageSlider -v1.0.1 - 2014-10-22 */(function(window, $){
+/*! imageSlider -v1.0.1 - 2014-10-23 */(function(window, $){
   'use strict';
   /**
   * @fileOverview Contains the awesome plug-in code.
@@ -31,30 +31,35 @@
   */
   $.fn.imageSlider = function(options){
     var defaults = {
+      width : 850,
+      height : 500,
+      type : 'image',
       $this : self,
       hover : true,
       userNav : true,
       rotateTime : 1000,
       slideTime : 3000,
-      slideWidth : 200,
-      easing : 'slide'
+      easing : 'slide',
+      usedButton : true,
+      usedButtonNext : true,
+      usedButtonPrev : true,
+      usedButtonResume : true,
+      usedButtonPause : true
     };
     return this.each(function(){
       var settings = $.extend(true, defaults, options || {});
       var _this = $(this);
       var rotate = _this.imageSliderRotate(settings);
-      _this.imageSliderNavigation(options);
-      rotate.resume();
+      _this.imageSliderNavigation(settings);
+      _this.imageSliderController(settings);
+      _this.css('width', settings.width + 'px');
+      _this.find('.slide').css('height', settings.height + 'px');
       _this.find('.slide-nav').on('click','a:not(".active")', function(e){
         var pageNum = $(this).data('index');
         e.preventDefault();
         rotate.moveTo(pageNum);
       });
-      _this.find('.slide-controller').on('click', '.controller', function(e){
-        e.preventDefault();
-        var type = $(this).data('type');
-        rotate[type]();
-      });
+      
       if(settings.hover){
         _this.find('.slide li').one('mouseover', function(e){
           e.preventDefault();
@@ -64,8 +69,74 @@
           rotate.resume();
         });
       }
+      
+      rotate.resume();
     });
   };
+})(window, jQuery);
+
+(function(window, $){
+  'use strict';
+  /**
+  * @fileOverview Contains the awesome plug-in code.
+  * @version 1.0.1
+  * @author Hyyoon &amp;lt;hyyoon@mz.co.kr
+  */
+  
+  /**
+  * See (http://jquery.com/)
+  * @name jQuery
+  * @class
+  * See the jQuery Library (http://jquery.com/) for full details. This just
+  * documents the function and classes that are added to jQuery by this plug-in.
+  */
+  
+  /**
+  * See (http://jquery.com/)
+  * @name fn
+  * @class
+  * See the jQuery Library (http://jquery.com/) for full details. This just
+  * documents the function and classes that are added to jQuery by this plug-in.
+  * @memberOf jQuery
+  */
+  
+  /**
+  * imageSliderController Plugin - image slide sub module for navigation.
+  *
+  * @class imageSliderController
+  * @membarOf jQuery.fn
+  */
+  $.fn.imageSliderController = function controller(options){
+    var $this = $(this),
+        $controller = $this.find('.slide-controller');
+        
+    if(!options.usedButton){
+      $controller.find('button').attr('disabled', 'disabled');
+    } else {
+      $controller.find('button').each(function(){
+        var type = $(this).data('type');
+        if(!options.usedButtonPrev && type === 'prev'){
+          $(this).attr('disabled', 'disabeld');
+        }
+        if(!options.usedButtonNext && type === 'next'){
+          $(this).attr('disabled', 'disabeld');
+        }
+        if(!options.usedButtonPause && type === 'pause'){
+          $(this).attr('disabled', 'disabeld');
+        }
+        if(!options.usedButtonResume && type === 'resume'){
+          $(this).attr('disabled', 'disabeld');
+        }
+      });
+    }
+    //event
+    $this.find('.slide-controller').on('click', 'button:not("disabled")','.controller', function(e){
+      e.preventDefault();
+      var type = $(this).data('type');
+      rotate[type]();
+    });
+  };
+  
 })(window, jQuery);
 
 (function(window, $){
@@ -149,13 +220,20 @@
     var len = $li.length;
     var interValTime = null;
     $li.each(function(index){
+      var $this = $(this);
       if(index === 0 ){
-        $(this).addClass('active');
+        $this.addClass('active');
       }
-      $(this).css({
-        'left': index * options.slideWidth
+      $this.css({
+        'left': index * options.width
       });
-      $(this).data('index', index + 1);
+      $this.data('index', index + 1);
+      if(options.type === 'image'){
+        $this.find('img').css({
+          'width' : options.width,
+          'height' : options.height
+        });
+      }
     });
     
     return {
@@ -163,7 +241,7 @@
         var _this = this;
         var index = $slide.find('li.active').data('index');
         $li.animate({
-          'left' : ( page && index > page ? '+=' : '-=') + options.slideWidth
+          'left' : ( page && index > page ? '+=' : '-=') + options.width
         },{
           duration : page ? '400' : options.rotateTime,
           step : function(now, tw){
@@ -175,11 +253,11 @@
           complete : function(){
             var $this = $(this);
             var left = $this.position().left;
-            if( left  <  -1 * options.slideWidth ){
-              $this.css('left' , ((len - 1) * options.slideWidth) + ( -1 * options.slideWidth ) + 'px');
+            if( left  <  -1 * options.width ){
+              $this.css('left' , ((len - 1) * options.width) + ( -1 * options.width ) + 'px');
             }
-            if( left >= (len - 1 ) * options.slideWidth ) {
-              $this.css('left' , -1 * options.slideWidth + 'px');
+            if( left >= (len - 1 ) * options.width ) {
+              $this.css('left' , -1 * options.width + 'px');
             }
             if($this.hasClass('active')){
               var _index = $this.data('index');

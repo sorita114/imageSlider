@@ -44,12 +44,13 @@
   1. version up -> v1.0.1  
   2. option 추가  
   3. 문서화  
-> - ** 2014-10-22 **  
+> - ** 2014-10-23 **  
   1. modify example index.html  
   2. bower install bootstrap  
   3. bower install html5shiv  
   4. modify option name  
   5. add bower highlight.js  
+  6. add option usedButton, usedButtonNext, usedButtonPrev, usedButtonPause, usedButtonResume  
   
 ## 4. licence  
 MIT
