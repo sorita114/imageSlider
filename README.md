@@ -44,6 +44,7 @@
   2. bower install bootstrap  
   3. bower install html5shiv  
   4. modify option name  
+  5. add bower highlight.js  
   
 ## 4. licence  
 MIT

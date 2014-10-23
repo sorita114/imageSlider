@@ -7,7 +7,9 @@
     <title>Image Slider Example - jQuery plugin</title>
     <link rel="stylesheet" href="./../../bower_components/bootstrap/dist/css/bootstrap.min.css" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./../../bower_components/highlightjs/styles/codepen-embed.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./../../public/css/common.css" media="screen" title="no title" charset="utf-8">
+    <script src="./../../bower_components/highlightjs/highlight.pack.js" charset="utf-8"></script>
     <!--[if lt IE9]>
       <script src="./../../bower_components/html5shiv/dist/html5shiv.js" charset="utf-8"></script>
     <![endif]-->
@@ -21,8 +23,9 @@
             <p class="text-right">- jQuery-plugin</p>
             <p>Index</p>
             <ol>
-              <li><a href="#default">Defaults Example</a></li>
-              <li><a href="#slideTime">Change SlideTime Example</a></li>
+              <li><a href="#ex1">Defaults Example</a></li>
+              <li><a href="#ex2">Change SlideTime Example</a></li>
+              <li><a href="#ex3">Change Width, height Example</a></li>
             </ol>
           </div>
         </div>
@@ -30,7 +33,7 @@
       <div class="row">
         <div class="col-md-12">
           <section>
-            <header id="default">
+            <header id="ex1">
               <h3>Defaults Example</h3>
             </header>
             <article>
@@ -56,12 +59,15 @@
               </div>
             </article>
           </section>
+          <pre>
+            <code class="js">$(".s1").imageSlider();</code>
+          </pre>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <section>
-            <header id="slideTime">
+            <header id="ex2">
               <h3>Change SlideTime Example</h3>
             </header>
             <article>
@@ -87,6 +93,43 @@
               </div>
             </article>
           </section>
+          <pre>
+            <code class="js">$(".s2").imageSlider({<br> rotateTime : 1000,<br>  slideTime : 4000<br>});</code>
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <section>
+            <header id="ex3">
+              <h3>Change Width, height Example</h3>
+            </header>
+            <article>
+              <div class="s3">
+                <div class="slide-wrapper">
+                  <ul id="slide" class="slide">
+                    <li><a href="#"><img src="./../../public/images/img1.jpg" alt="image1"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img2.jpg" alt="image2"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img3.jpg" alt="image3"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img4.jpg" alt="image4"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img5.jpg" alt="image5"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img6.jpg" alt="image6"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img7.jpg" alt="image7"/></a></li>
+                  </ul>
+                </div>
+                <p class="slide-nav"></p>
+                <div class="slide-controller">
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="prev" data-target="s3"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="next" data-target="s3"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                  <button type="button" class="btn btn-default btn-sm controller" data-type="pause" data-target="s3"><span class="glyphicon glyphicon-pause"></span></button>
+                  <button tyep="button" class="btn btn-default btn-sm controller" data-type="resume" data-target="s3"><span class="glyphicon glyphicon-play"></span></button>
+                </div>
+              </div>
+            </article>
+          </section>
+          <pre>
+            <code class="js">$(".s2").imageSlider({<br> width : 1100,<br>  height : 500<br>});</code>
+          </pre>
         </div>
       </div>
     </div>
@@ -97,10 +140,21 @@
     <script src="./../../lib/jquery-plugin/jquery-imageSlider.navigation.js" charset="utf-8"></script>
     <script charset="utf-8">
       $(document).ready(function(){
-        $(".s1").imageSlider({});
+        hljs.configure({
+          tabReplace: '    ',
+          useBR: true
+        });
+        $('pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+        $(".s1").imageSlider();
         $(".s2").imageSlider({
           rotateTime : 1000,
-          slideTime : 4000,
+          slideTime : 4000
+        });
+        $(".s3").imageSlider({
+          width : 1100,
+          height : 500
         });
       });
     </script>
