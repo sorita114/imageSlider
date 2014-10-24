@@ -1,4 +1,4 @@
-/*! imageSlider -v1.0.1 - 2014-10-23 */(function(window, $){
+/*! imageSlider -v1.0.1 - 2014-10-24 10:33:59 */(function(window, $){
   'use strict';
   /**
   * @fileOverview Contains the awesome plug-in code.
@@ -34,6 +34,7 @@
       width : 850,
       height : 500,
       type : 'image',
+      theme : 'default',
       hover : true,
       userNav : true,
       rotateTime : 1000,
@@ -51,11 +52,11 @@
       var settings = $.extend(true, defaults, options || {});
       var _this = $(this);
       var rotate = _this.imageSliderRotate(settings);
+      _this.addClass(settings.theme);
       _this.imageSliderNavigation(settings);
       _this.imageSliderController(settings);
       _this.css('width', settings.width + 'px');
       _this.find('.slide').css('height', settings.height + 'px');
-      
       _this.find('.slide-nav').on('click','a:not(".active")', function(e){
         var pageNum = $(this).data('index') * 1;
         e.preventDefault();
@@ -252,10 +253,6 @@
         } else {
           position = '-=' + options.width;
         }
-        
-        if(!options.isLoop && index === len){
-          _this.pause();
-        }
         $li.animate({
           //'left' : ( page && index > page ? '+=' : '-=') + options.width
           'left' : position
@@ -297,6 +294,9 @@
       },
       resume : function(){
         var _this = this;
+        if(interValTime){
+          clearInterval(interValTime);
+        }
         interValTime = setInterval(function(){
           _this.rotate();
         }, options.slideTime);
@@ -312,10 +312,10 @@
       next : function(){
         var _this = this;
         var index = $nav.find('a.active').data('index');
-        //var pageNum = index + 1 > len ? 1 : index + 1;
+        var pageNum = index + 1 > len ? 1 : index + 1;
         _this.pause();
         if(!options.isLoof && index === len){
-          _this.pause();
+          _this.moveTo(pageNum);
         } else {
           _this.moveTo('N');
         }
@@ -323,10 +323,10 @@
       prev : function(){
         var _this = this;
         var index = $nav.find('a.active').data('index');
-        //var pageNum = index - 1 < 1 ? len : index - 1;
+        var pageNum = index - 1 < 1 ? len : index - 1;
         _this.pause();
         if(!options.isLoop && index === 1){
-          _this.pause();
+          _this.moveTo(pageNum);
         } else {
           _this.moveTo('P');
         }
