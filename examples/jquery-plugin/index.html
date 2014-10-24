@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./../../bower_components/highlightjs/styles/codepen-embed.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./../../public/css/common.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./../../dest/css/imageSlider.min.css" media="screen" title="no title" charset="utf-8">
     <script src="./../../bower_components/highlightjs/highlight.pack.js" charset="utf-8"></script>
     <!--[if lt IE9]>
       <script src="./../../bower_components/html5shiv/dist/html5shiv.js" charset="utf-8"></script>
@@ -26,6 +27,9 @@
               <li><a href="#ex1">Defaults Example</a></li>
               <li><a href="#ex2">Change SlideTime Example</a></li>
               <li><a href="#ex3">Disabled button</a></li>
+              <li><a href="#ex4">Auto Slider False</a></li>
+              <li><a href="#ex5">isLoop False</a></li>
+              <li><a href="#ex6">Default Theme</a></li>
             </ol>
           </div>
         </div>
@@ -34,9 +38,9 @@
         <div class="col-md-12">
           <section>
             <header id="ex1">
-              <h3>Defaults Example</h3>
+              <h3><a href="#defaultsExample" data-toggle="collapse">1. Defaults Example</a></h3>
             </header>
-            <article>
+            <article class="collapse" id="defaultsExample">
               <div class="s1">
                 <div class="slide-wrapper">
                   <ul id="slide" class="slide">
@@ -68,9 +72,9 @@
         <div class="col-md-12">
           <section>
             <header id="ex2">
-              <h3>Change SlideTime Example</h3>
+              <h3><a href="#ChangeSlideTimeExample" data-toggle="collapse">2. Change SlideTime Example</a></h3>
             </header>
-            <article>
+            <article class="collapse" id="ChangeSlideTimeExample">
               <div class="s2">
                 <div class="slide-wrapper">
                   <ul id="slide" class="slide">
@@ -102,9 +106,9 @@
         <div class="col-md-12">
           <section>
             <header id="ex3">
-              <h3>Disabled button</h3>
+              <h3><a href="#DisabledButton" data-toggle="collapse">3. Disabled button</a></h3>
             </header>
-            <article>
+            <article class="collapse" id="DisabledButton">
               <div class="s3">
                 <div class="slide-wrapper">
                   <ul id="slide" class="slide">
@@ -136,9 +140,9 @@
         <div class="col-md-12">
           <section>
             <header id="ex4">
-              <h3>Auto Slider False</h3>
+              <h3><a href="#AutoSliderFalse" data-toggle="collapse">4. Auto Slider False</a></h3>
             </header>
-            <article>
+            <article class="collapse" id="AutoSliderFalse">
               <div class="s4">
                 <div class="slide-wrapper">
                   <ul id="slide" class="slide">
@@ -170,9 +174,9 @@
         <div class="col-md-12">
           <section>
             <header id="ex5">
-              <h3>isLoop False</h3>
+              <h3><a href="#isLoopFalse" data-toggle="collapse">5. isLoop False</a></h3>
             </header>
-            <article>
+            <article class="collapse" id="isLoopFalse">
               <div class="s5">
                 <div class="slide-wrapper">
                   <ul id="slide" class="slide">
@@ -197,6 +201,40 @@
           </section>
           <pre>
             <code class="js">$(".s5").imageSlider({<br> isLoop : false<br>});</code>
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <section>
+            <header id="ex6">
+              <h3><a href="#DefaultTheme" data-toggle="collapse">6. Default Theme</a></h3>
+            </header>
+            <article id="DefaultTheme" class="collapse">
+              <div class="s6">
+                <div class="slide-wrapper">
+                  <ul id="slide" class="slide">
+                    <li><a href="#"><img src="./../../public/images/img1.jpg" alt="image1"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img2.jpg" alt="image2"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img3.jpg" alt="image3"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img4.jpg" alt="image4"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img5.jpg" alt="image5"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img6.jpg" alt="image6"/></a></li>
+                    <li><a href="#"><img src="./../../public/images/img7.jpg" alt="image7"/></a></li>
+                  </ul>
+                </div>
+                <p class="slide-nav"></p>
+                <div class="slide-controller">
+                  <button type="button" class="btn btn-default btn-sm controller prev" data-type="prev" data-target="s6"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                  <button type="button" class="btn btn-default btn-sm controller next" data-type="next" data-target="s6"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                  <button type="button" class="btn btn-default btn-sm controller pause" data-type="pause" data-target="s6"><span class="glyphicon glyphicon-pause"></span></button>
+                  <button tyep="button" class="btn btn-default btn-sm controller resume" data-type="resume" data-target="s6"><span class="glyphicon glyphicon-play"></span></button>
+                </div>
+              </div>
+            </article>
+          </section>
+          <pre>
+            <code class="js">$(".s6").imageSlider({<br> theme : 'default'<br>});</code>
           </pre>
         </div>
       </div>
@@ -233,6 +271,9 @@
         });
         $(".s5").imageSlider({
           isLoop : false
+        });
+        $(".s6").imageSlider({
+          theme : 'default'
         });
       });
     </script>

@@ -20,8 +20,9 @@
     usedButtonPrev : true,//use controller prev button  
     usedButtonPause : true,//use controller Pause button  
     usedButtonResume : true,//use controller resume button  
-    autoSlide : true//auto rotate slide  
-    isLoop : true//loop slide  
+    autoSlide : true,//auto rotate slide  
+    isLoop : true,//loop slide  
+    theme : null//set slide theme( 'default' )  
   }  
 ````  
   
@@ -55,7 +56,11 @@
   6. bugFixed  
   7. modify next, prev  
   8. add option  
-  9. bugFixed
+  9. bugFixed  
+> - ** 2014-10-23 **  
+  1. add theme -> default.css  
+  2. add grunt module -> cssmin  
+  3. modify imageSlider.js -> add options theme  
   
 ## 4. licence  
 MIT

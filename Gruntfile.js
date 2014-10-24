@@ -10,7 +10,7 @@ module.exports = function(grunt){
           compress : {
             drop_console : true
           },
-          banner : '/*! <%= pkg.name %> -v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */'
+          banner : '/*! <%= pkg.name %> -v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd h:MM:ss") %> */'
         },
         files : {
           './dest/jquery-plugin/imageSlider.min.js' : ['./dest/jquery-plugin/imageSlider.js']
@@ -18,20 +18,21 @@ module.exports = function(grunt){
       }
     },
     concat : {
-      options : {
-        stripBanners : true,
-        banner : '/*! <%= pkg.name %> -v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */'
-      },
-      dist : {
-        src : ['./lib/jquery-plugin/*.js'],
-        dest : './dest/jquery-plugin/imageSlider.js'
+      jquery_plugin : {
+        options : {
+          stripBanners : true,
+          banner : '/*! <%= pkg.name %> -v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd h:MM:ss") %> */'
+        },
+        dist : {
+          src : ['./lib/jquery-plugin/*.js'],
+          dest : './dest/jquery-plugin/imageSlider.js'
+        }
       }
     },
     plato : {
       your_task : {
         files : {
-          './report/output/jquery-plugin' : [
-                                              './lib/jquery-plugin/jquery-imageSlider.js',
+          './report/output/jquery-plugin' : ['./lib/jquery-plugin/jquery-imageSlider.js',
                                               './lib/jquery-plugin/jquery-imageSliderNavigation.js',
                                               './lib/jquery-plugin/jquery-imageSliderRotate.js',
                                               './lib/jquery-plugin/jquery-imageSliderController.js',
@@ -46,6 +47,17 @@ module.exports = function(grunt){
           destination : './doc/jquery-plugin'
         }
       }
+    },
+    cssmin : {
+      style_sheets : {
+        options : {
+          report : 'gzip',
+          banner : '/*! <%= pkg.name %> -v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd h:MM:ss") %> */'
+        },
+        files : {
+          './dest/css/imageSlider.min.css' : ['./lib/css/imageSlider.css', './lib/css/theme/*.css']
+        }
+      }
     }
   });
   
@@ -53,5 +65,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-plato');
   grunt.loadNpmTasks('grunt-jsdoc');
-  grunt.registerTask('default', ['jsdoc', 'concat', 'uglify','plato']);
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.registerTask('default', ['jsdoc', 'concat','cssmin', 'uglify','plato']);
 };
