@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Slider Example - jQuery plugin</title>
+    <link rel="stylesheet" href="./../../bower_components/bootstrap/dist/css/bootstrap.min.css" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./../../bower_components/highlightjs/styles/codepen-embed.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./../../public/css/common.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./../../dest/css/imageSlider.min.css" media="screen" title="no title" charset="utf-8">
+    <script src="./../../bower_components/highlightjs/highlight.pack.js" charset="utf-8"></script>
+    <!--[if lt IE9]>
+      <script src="./../../bower_components/html5shiv/dist/html5shiv.js" charset="utf-8"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="jumbotron">
+            <h1>이미지 슬라이더</h1>
+            <p class="text-right">- jQuery-plugin version</p>
+            <p>Index</p>
+            <ol>
+              <li><a href="index.html">Defaults Example</a></li>
+              <li><a href="changetime.html">Change SlideTime Example</a></li>
+              <li><a href="disabledbutton.html">Disabled button</a></li>
+              <li><a href="#">Auto Slider False</a></li>
+              <li><a href="isloop.html">isLoop False</a></li>
+              <li><a href="defaultTheme.html">Default Theme</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">자동 슬라이드 제어하기</h4>
+              </div>
+              <div class="panel-body">
+                <p>
+                  자동으로 슬라이드가 되는 것을 제어할 수 있습니다.<br/>
+                  <code>autoSlide : true</code> 을 <code>false</code> 로 하면, next 나 prev 버튼을 클릭하지 않는 이상 자동으로 슬라이드가 되지 않습니다.
+                </p>
+                <p>
+                  <pre>
+                    <code class="js">$(".s4").imageSlider({<br> autoSlide : false<br>});</code>
+                  </pre>
+                </p>
+                <div class="s4">
+                  <div class="slide-wrapper">
+                    <ul id="slide" class="slide">
+                      <li><a href="#"><img src="./../../public/images/img1.jpg" alt="image1"/></a></li>
+                      <li><a href="#"><img src="./../../public/images/img2.jpg" alt="image2"/></a></li>
+                      <li><a href="#"><img src="./../../public/images/img3.jpg" alt="image3"/></a></li>
+                      <li><a href="#"><img src="./../../public/images/img4.jpg" alt="image4"/></a></li>
+                      <li><a href="#"><img src="./../../public/images/img5.jpg" alt="image5"/></a></li>
+                      <li><a href="#"><img src="./../../public/images/img6.jpg" alt="image6"/></a></li>
+                      <li><a href="#"><img src="./../../public/images/img7.jpg" alt="image7"/></a></li>
+                    </ul>
+                  </div>
+                  <p class="slide-nav"></p>
+                  <div class="slide-controller">
+                    <button type="button" class="prev controller" data-type="prev" data-target="s4"><i><span class="blind">이전</span></i></button>
+                    <button type="button" class="pause controller" data-type="pause" data-target="s4"><i><span class="blind">일시정지</span></i></button>
+                    <button tyep="button" class="resume controller" data-type="resume" data-target="s4"><i><span class="blind">재생</span></i></button>
+                    <button type="button" class="next controller" data-type="next" data-target="s4"><i><span class="blind">다음</span></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="./../../bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+      <script src="./../../bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+      <script src="./../../lib/jquery-plugin/jquery-imageSlider.js" charset="utf-8"></script>
+      <script src="./../../lib/jquery-plugin/jquery-imageSliderRotate.js" charset="utf-8"></script>
+      <script src="./../../lib/jquery-plugin/jquery-imageSliderNavigation.js" charset="utf-8"></script>
+      <script src="./../../lib/jquery-plugin/jquery-imageSliderController.js" charset="utf-8"></script>
+      <script charset="utf-8">
+        $(document).ready(function(){
+          hljs.configure({
+            tabReplace: '    ',
+            useBR: true
+          });
+          $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+          $(".s4").imageSlider({
+            autoSlide : false
+          });
+        });
+      </script>
+  </body>
+</html>
