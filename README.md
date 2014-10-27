@@ -47,7 +47,7 @@
   1. version up -> v1.0.1  
   2. option 추가  
   3. 문서화  
-> - ** 2014-10-23 **  
+> - ** 2014-10-22 **  
   1. modify example index.html  
   2. bower install bootstrap  
   3. bower install html5shiv  
@@ -61,6 +61,13 @@
   1. add theme -> default.css  
   2. add grunt module -> cssmin  
   3. modify imageSlider.js -> add options theme  
+> - ** 2014-10-27 **  
+  1. grunt module add -> imagemin  
+  2. bootstrap style delete  
+  3. button image add -> imageslide.png  
+  4. css modify  
+  5. example html add  
+  6. npm update  
   
 ## 4. licence  
 MIT
