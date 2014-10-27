@@ -1,9 +1,8 @@
 .default-theme{position:relative}
 .default-theme .slide-wrapper{}
 .default-theme .slide-nav{position:absolute;bottom:0;left:50%}
-.default-theme .slide-controller .btn{border:0;opacity:0.5}
+.default-theme .slide-controller .controller{border:0;opacity:0.5}
 .default-theme .slide-controller .prev{position:absolute;left:0;top:0;border-radius:0}
 .default-theme .slide-controller .next{position:absolute;right:0;top:0;border-radius:0}
-.default-theme .slide-controller .resume, .default-theme .slide-controller .pause{display:none;position:absolute;left:50%;bottom:0}
-.default-theme .slide-controller .resume.active, .default-theme .slide-controller .pause.active{display:block}
+.default-theme .slide-controller .resume, .default-theme .slide-controller .pause{position:absolute;left:50%;bottom:0}
     
