@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">66.21</p>
+      <p class="stat">65.87</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">150</p>
+      <p class="stat">152</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">44.15</p>
+      <p class="stat">45.29</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">1.33</p>
+      <p class="stat">1.37</p>
     </div>
   </div>
 </div>
@@ -132,9 +132,11 @@
       if(index === 0 ){
         $this.addClass(&#039;active&#039;);
       }
-      $this.css({
-        &#039;left&#039;: index * options.width
-      });
+      if(index + 1 === len){
+        $this.css(&#039;left&#039;, -1 * options.width);
+      } else {
+        $this.css(&#039;left&#039;, index * options.width);
+      }
       $this.data(&#039;index&#039;, index + 1);
       if(options.type === &#039;image&#039;){
         $this.find(&#039;img&#039;).css({
@@ -200,13 +202,13 @@
         if(interValTime){
           clearInterval(interValTime);
         }
-        self.find(&#039;.slide-controller&#039;).find(&#039;.resume&#039;).addClass(&#039;active&#039;).siblings().removeClass(&#039;active&#039;);
+        self.find(&#039;.slide-controller&#039;).find(&#039;.pause&#039;).addClass(&#039;active&#039;).siblings().removeClass(&#039;active&#039;);
         interValTime = setInterval(function(){
           _this.rotate();
         }, options.slideTime);
       },
       pause : function(){
-        self.find(&#039;.slide-controller&#039;).find(&#039;.pause&#039;).addClass(&#039;active&#039;).siblings().removeClass(&#039;active&#039;);
+        self.find(&#039;.slide-controller&#039;).find(&#039;.resume&#039;).addClass(&#039;active&#039;).siblings().removeClass(&#039;active&#039;);
         clearInterval(interValTime);
       },
       moveTo : function(pageNum){
