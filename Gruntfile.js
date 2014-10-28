@@ -58,13 +58,6 @@ module.exports = function(grunt){
           './dest/css/imageSlider.min.css' : ['./lib/css/imageSlider.css', './lib/css/theme/*.css']
         }
       }
-    },
-    imagemin : {
-      static : {
-        files : {
-          './dest/image/imageslide.png' : './lib/image/imageslide.png'
-        }
-      }
     }
   });
   
@@ -73,12 +66,10 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-plato');
   grunt.loadNpmTasks('grunt-jsdoc');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.registerTask('doc', ['jsdoc']);
-  grunt.registerTask('concat', ['concat']);
+  grunt.registerTask('con', ['concat']);
   grunt.registerTask('css', ['cssmin']);
-  grunt.registerTask('uglify', ['uglify']);
-  grunt.registerTask('plato', ['plato']);
-  grunt.registerTask('image', ['imagemin']);
-  grunt.registerTask('all', ['jsdoc', 'concat','cssmin', 'uglify','plato', 'imagemin']);
+  grunt.registerTask('zip', ['uglify']);
+  grunt.registerTask('report', ['plato']);
+  grunt.registerTask('all', ['jsdoc', 'concat','cssmin', 'uglify','plato']);
 };
